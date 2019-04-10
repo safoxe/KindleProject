@@ -1,0 +1,108 @@
+﻿<Page x:Class="KindleReader.AllBooks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KindleReader.Model"
+      xmlns:sys ="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="AllBooks">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="rateToggleButton" TargetType="{x:Type ToggleButton}">
+            <Canvas  x:Name="appbar_star"
+                     Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                <Path Width="41.1667"
+                      x:Name="StarButton"
+                      Height="38" 
+                      Canvas.Left="17.4167" 
+                      Canvas.Top="18" 
+                      Stretch="Fill" 
+                      Fill="Transparent" 
+                      Data="F1 M 17.4167,32.25L 32.9107,32.25L 38,18L 43.0893,32.25L 58.5833,32.25L 45.6798,41.4944L 51.4583,56L 38,48.0833L 26.125,56L 30.5979,41.7104L 17.4167,32.25 Z "
+                      Stroke="Black"
+                      StrokeThickness="1"/>
+            </Canvas>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter TargetName="StarButton" Property="Fill" Value="	#FFFF00"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+            <Style TargetType="{x:Type Button}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="rateButtonTrigger">
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Height" Value="80"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2.5*" />
+        </Grid.ColumnDefinitions>
+                
+        <ListBox x:Name="allBooks" Grid.Column="0" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="20" Text="{Binding Path=Title}"/>
+                        <TextBlock Text="{Binding Path=Author}" Height="30"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <Label  Content="Title:"/>
+            <TextBlock x:Name="Title" Margin="15" Text="{Binding ElementName=allBooks, Path=SelectedItem.Title}" TextAlignment="Left"/>
+            <Label Content="Author:"/>
+            <TextBlock Margin="15" Text="{Binding ElementName=allBooks, Path=SelectedItem.Author}" TextAlignment="Left"/>
+            <Label Content="Description:"/>
+            <TextBox x:Name="bookDescriprion" Height="100" Text="{Binding ElementName=allBooks,Path=SelectedItem.Description}" />
+            <Button x:Name="saveDescriptionButton" Margin="5,5,5,5" Height="30" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=bookDescriprion, Path=Text}" Content="Save"/>
+
+            <Label Content="Progress:"/>
+            <ProgressBar x:Name="readingProgress" Margin="10,0,10,10" Height="40" Minimum="0" Maximum="{Binding ElementName=allBooks, Path=SelectedItem.NumberOfPages, Mode=TwoWay}" Value="{Binding ElementName=allBooks, Path=SelectedItem.CurrentPage}"
+                          MouseDoubleClick="enterCurrentPage"
+                          ToolTip="Double click on this and enter your current page"/>
+
+            <DockPanel x:Name="RatePanel" HorizontalAlignment="Center" Height="Auto" Width="Auto" MouseEnter="RatePanel_MouseEnter">
+                <ToggleButton x:Uid="1" Template="{StaticResource rateToggleButton}"/>
+                <ToggleButton x:Uid="2" Template="{StaticResource rateToggleButton}"/>
+                <ToggleButton x:Uid="3" Template="{StaticResource rateToggleButton}"/>
+                <ToggleButton x:Uid="4" Template="{StaticResource rateToggleButton}"/>
+                <ToggleButton x:Uid="5" Template="{StaticResource rateToggleButton}"/>
+            </DockPanel>
+            
+            
+        </StackPanel>
+        
+    </Grid>
+</Page>
