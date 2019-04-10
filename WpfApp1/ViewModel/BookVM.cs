@@ -27,6 +27,27 @@ namespace KindleReader.ViewModel
                 return saveCommand;
             }
         }
+
+        private RelayCommand deleteBookCommand;
+
+        public RelayCommand DeleteBookCommand
+        {
+            get
+            {
+                if(deleteBookCommand == null)
+                {
+                    deleteBookCommand = new RelayCommand(obj =>
+                    {
+                        AdditionalBookInfo bookInfo = obj as AdditionalBookInfo;
+                        if (bookInfo != null)
+                        {
+                            Books.Remove(bookInfo);
+                        }
+                    }, obj => (Books.Count < 0) || (SelectedBook != null));
+                }
+                return deleteBookCommand;
+            }
+        }
         public ObservableCollection<IBookInfo> Books { get; set; } //ObservalbleCollection has already implemented INotifyPropertyChanged
 
         private AdditionalBookInfo selectedBook;

@@ -37,26 +37,31 @@ namespace KindleReader
                 MessageBox.Show("Choose a book!");
             }
         }
-
-        private void RatePanel_MouseEnter(object sender, MouseEventArgs e)
+       
+        private void SelectedNewRate(object sender, RoutedEventArgs e)
         {
-            int bookRate = 0;
-
-            if (allBooks.SelectedItems.Count != 0)
+            ListBox ratePanel = sender as ListBox;
+            int rate = ratePanel.SelectedIndex;
+            if (allBooks.SelectedItem == null)
             {
-                RatePanel.Cursor = Cursors.Hand;
-                foreach (ToggleButton toggleButton in LogicalTreeHelper.GetChildren(RatePanel))
-                {
-                    if (toggleButton.IsChecked == true)
-                        bookRate += 1;
-                }
-                bookVM.SelectedBook.Rate = bookRate;
+                MessageBox.Show("Choose a book!");
             }
             else
             {
-                RatePanel.IsEnabled = false;
-            }
+                for (int i = 0; i < ratePanel.Items.Count; i++)
+                {
+                    ToggleButton rates = ratePanel.Items[i] as ToggleButton;
+                    if (i <= rate)
+                    {
 
+                        rates.IsChecked = true;
+                    }
+                    else
+                        rates.IsChecked = false;
+                }
+                if (allBooks.SelectedItem != null)
+                    bookVM.SelectedBook.Rate = rate + 1;
+            }
         }
     }
 }
