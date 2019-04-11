@@ -58,7 +58,13 @@
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
-        
+
+        <Style x:Key="listBoxItemView" TargetType="ListBoxItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+            </Style.Resources>
+        </Style>
+
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="19"/>
             <Setter Property="FontFamily" Value="Calibri"/>
@@ -101,7 +107,7 @@
                           MouseDoubleClick="enterCurrentPage"
                           ToolTip="Double click on this and enter your current page"/>
 
-            <ListBox x:Name="RatePanel" HorizontalAlignment="Center" Height="Auto" Width="Auto" SelectionChanged="SelectedNewRate" Style="{StaticResource starRate}">
+            <ListBox x:Name="RatePanel" HorizontalAlignment="Center" Height="Auto" Width="Auto" SelectionChanged="SelectedNewRate" Style="{StaticResource starRate}" ItemContainerStyle="{StaticResource listBoxItemView}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>

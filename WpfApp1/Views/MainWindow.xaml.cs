@@ -4,7 +4,9 @@ using KindleReader.SerializingTools;
 using KindleReader.ViewModel;
 using System.Windows;
 using System.Windows.Input;
-
+using KindleReader.Model;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace KindleReader
 {
@@ -25,7 +27,17 @@ namespace KindleReader
 
         private void MainWindow_Loaded(object sender, EventArgs eventArgs)
         {
+
             this.NavigationService.Navigate(new AllBooks(bookVM));
+            try
+            {
+                ObservableCollection<AdditionalBookInfo> b = BookInfoDeserializer<AdditionalBookInfo>.AdditionalBookInfosDeserialize(bookVM.SelectedBook);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         private void MainWindow_Closed(object sender, EventArgs eventArgs)
         {

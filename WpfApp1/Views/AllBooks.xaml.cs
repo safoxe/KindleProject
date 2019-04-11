@@ -19,9 +19,8 @@ namespace KindleReader
         BookVM bookVM;
         public AllBooks(BookVM bookVM_arg)
         {
-            bookVM = new BookVM();
-            InitializeComponent();
             bookVM = bookVM_arg;
+            InitializeComponent();
             DataContext = bookVM;
         }
 

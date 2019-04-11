@@ -65,8 +65,8 @@ namespace KindleReader.ViewModel
         {
             Books = new ObservableCollection<IBookInfo>()
             {
-                new AdditionalBookInfo(new BookInfo("Title1", "Author1", 400)),
-                new AdditionalBookInfo(new BookInfo("Title2", "Author2", 500))
+                new AdditionalBookInfo(){Title="Title1", Author="Author1", NumberOfPages=200},
+                new AdditionalBookInfo(){Title="Title2", Author="Author2", NumberOfPages=300}
             };            
         }
 

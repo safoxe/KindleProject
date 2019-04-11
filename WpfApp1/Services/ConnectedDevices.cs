@@ -10,32 +10,9 @@ namespace KindleReader.Services
 {
     public class ConnectedDevices
     {
-        //nope, it can`t be singleton
-        private static readonly object Lock = new object();
-        private static ConnectedDevices instanse;
-        public static ConnectedDevices Instanse
-        {
-            get
-            {
-                lock(Lock)
-                {
-                    if(instanse == null)
-                    {
-                        instanse = new ConnectedDevices();
-                        return instanse;
-                    }
-                    else
-                    {
-                        return instanse;
-                    }
-                }
+        //To be or not to be.. a singleton(?) I need only one instance for this class in my whole program,
+        //but I use it only once in whole program and creating another one won`t have any influence on this program
 
-            }
-        }
-        ConnectedDevices()
-        {
-
-        }
         public int NumberofKindles { get; private set; }
         private List<Device> GetConnectedKindle()
         {

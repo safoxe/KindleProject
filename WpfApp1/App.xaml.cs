@@ -12,7 +12,7 @@ namespace KindleReader
     {
        public void OnApplicationStartUp(object sender, EventArgs eventArgs)
        {
-            var connectedDevices = ConnectedDevices.Instanse;
+            ConnectedDevices connectedDevices = new ConnectedDevices();
 
             if(connectedDevices.HasConnectedKindle() == true)//change to false, if you`re connecting Kindle
             {

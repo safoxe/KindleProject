@@ -8,8 +8,8 @@ namespace KindleReader.Model
 {
     public interface IBookInfo
     {
-        string Title { get;}
-        string Author { get;}
+        string Title { get; set; }
+        string Author { get; set; }
         int NumberOfPages { get; set; }
 
     }

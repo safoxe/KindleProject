@@ -16,22 +16,27 @@ namespace KindleReader.SerializingTools
 
             using (StreamWriter streamWriter = new StreamWriter(@"d:\additionalBookInfos.txt"))
             {
+                if(streamWriter != null)
                 using (JsonTextWriter bookJsonTextWriter = new JsonTextWriter(streamWriter))
                 {
                     bookSerializer.Serialize(bookJsonTextWriter, bookVM.Books);
                 }
             }
         }
-        public static ObservableCollection<AdditionalBookInfo> AdditionalBookInfosDeserialize() 
-        {
+    }
 
-            ObservableCollection<AdditionalBookInfo> bookInfos = new ObservableCollection<AdditionalBookInfo>();
+    public static class BookInfoDeserializer<T>
+    {
+        public static ObservableCollection<T> AdditionalBookInfosDeserialize(T book)
+        {
+            ObservableCollection<T> bookInfos = new ObservableCollection<T>();
             using (StreamReader streamReader = new StreamReader(@"d:\additionalBookInfos.txt"))
             {
-                bookInfos = JsonConvert.DeserializeObject<ObservableCollection<AdditionalBookInfo>>(streamReader.ReadToEnd());
+                if (streamReader != null)
+                    bookInfos = JsonConvert.DeserializeObject<ObservableCollection<T>>(streamReader.ReadToEnd());
             }
-            
-            return bookInfos;             
+
+            return bookInfos;
         }
     }
 }
