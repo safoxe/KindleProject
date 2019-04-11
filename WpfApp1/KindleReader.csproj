@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Factories\BookInfoFactory.cs" />
+    <Compile Include="Factories\DataRetriverFactory.cs" />
+    <Compile Include="Services\DataRetriver.cs" />
+    <Compile Include="Services\IDataRetriver.cs" />
     <Compile Include="Views\ChooseKindle.xaml.cs">
       <DependentUpon>ChooseKindle.xaml</DependentUpon>
     </Compile>

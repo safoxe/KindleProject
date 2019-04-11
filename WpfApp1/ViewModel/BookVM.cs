@@ -3,12 +3,16 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using System.ComponentModel;
 using KindleReader.Commands;
-using System.Windows; 
+using KindleReader.Factories;
+using System.Windows;
+using KindleReader.Services;
 
 namespace KindleReader.ViewModel
 {
     public class BookVM: INotifyPropertyChanged
     {
+        private IDataRetriver dataRetriver;
+
         private RelayCommand saveCommand;
 
         public RelayCommand SaveCommand
@@ -61,13 +65,12 @@ namespace KindleReader.ViewModel
                 OnPropertyChanged("SelectedBook");
             }
         }
+
         public BookVM()
         {
-            Books = new ObservableCollection<IBookInfo>()
-            {
-                new AdditionalBookInfo(){Title="Title1", Author="Author1", NumberOfPages=200},
-                new AdditionalBookInfo(){Title="Title2", Author="Author2", NumberOfPages=300}
-            };            
+            Books = new ObservableCollection<IBookInfo>();
+            dataRetriver = DataRetriverFactory.GetDataRetriever();
+            dataRetriver.GetAllBooksFromDevice(Books);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
