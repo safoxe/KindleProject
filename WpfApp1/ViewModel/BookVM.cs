@@ -65,10 +65,10 @@ namespace KindleReader.ViewModel
                 OnPropertyChanged("SelectedBook");
             }
         }
-
+        //I don`t think that I can implement dependency injection here it`s viewmodel
         public BookVM()
         {
-            Books = new ObservableCollection<IBookInfo>();
+            Books = new ObservableCollection<IBookInfo>(); 
             dataRetriver = DataRetriverFactory.GetDataRetriever();
             dataRetriver.GetAllBooksFromDevice(Books);
         }

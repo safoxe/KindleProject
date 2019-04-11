@@ -12,11 +12,11 @@ namespace KindleReader.Services
     {
         //To be or not to be.. a singleton(?) I need only one instance for this class in my whole program,
         //but I use it only once in whole program and creating another one won`t have any influence on this program
-
+        public List<Device> connectedDevices;
         public int NumberofKindles { get; private set; }
         private List<Device> GetConnectedKindle()
         {
-            List<Device> connectedDevices = new List<Device>();
+            connectedDevices = new List<Device>();
             ManagementObjectCollection deviceCollection;
             //VID(VendorID) is included in DeviceID. It`ll be the same for all Kindle products
             using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"SELECT * FROM Win32_UsbHub WHERE DeviceID LIKE 'VID%" + 1949 + "%'"))
