@@ -13,6 +13,7 @@ namespace KindleReader
         {
             InitializeComponent();
             currentBookVM = bookVM;
+            currentPageValue.Focus();
         }
 
         public void saveCurrentPage(object sender, RoutedEventArgs e)
@@ -21,6 +22,7 @@ namespace KindleReader
         }
         private void GetCurrentPage()
         {
+            
             int currentPage = 0;
             if(Int32.TryParse(currentPageValue.Text, out currentPage))
             {

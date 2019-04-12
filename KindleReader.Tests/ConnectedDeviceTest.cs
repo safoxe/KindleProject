@@ -2,7 +2,7 @@
 using NUnit.Framework;
 
 namespace KindleReader.Tests
-{   
+{
     [TestFixture]
     public class ConnectedDeviceTest
     {

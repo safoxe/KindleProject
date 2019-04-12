@@ -8,3 +8,5 @@
         Title="MainWindow" MinHeight="400" MinWidth="800"
         SizeToContent="WidthAndHeight">
 </NavigationWindow>
+    
+   

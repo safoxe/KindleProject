@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleReader", "WpfApp1\KindleReader.csproj", "{3354AB50-C625-42A7-B5D9-2812DFB634CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleReader.Tests", "KindleReader.Tests\KindleReader.Tests.csproj", "{7B195A0B-14AA-4398-860C-892C8DAB25D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindleReader.Tests", "KindleReader.Tests\KindleReader.Tests.csproj", "{7DFC2D74-C735-411C-8704-525612D80D5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{3354AB50-C625-42A7-B5D9-2812DFB634CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3354AB50-C625-42A7-B5D9-2812DFB634CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3354AB50-C625-42A7-B5D9-2812DFB634CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B195A0B-14AA-4398-860C-892C8DAB25D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B195A0B-14AA-4398-860C-892C8DAB25D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B195A0B-14AA-4398-860C-892C8DAB25D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B195A0B-14AA-4398-860C-892C8DAB25D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFC2D74-C735-411C-8704-525612D80D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFC2D74-C735-411C-8704-525612D80D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFC2D74-C735-411C-8704-525612D80D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFC2D74-C735-411C-8704-525612D80D5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

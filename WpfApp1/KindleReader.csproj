@@ -69,6 +69,8 @@
     <Compile Include="Factories\DataRetriverFactory.cs" />
     <Compile Include="Services\DataRetriver.cs" />
     <Compile Include="Services\IDataRetriver.cs" />
+    <Compile Include="Services\ISaveSummary.cs" />
+    <Compile Include="Services\SaveSummaryPDF.cs" />
     <Compile Include="Views\ChooseKindle.xaml.cs">
       <DependentUpon>ChooseKindle.xaml</DependentUpon>
     </Compile>
@@ -88,6 +90,10 @@
     <Compile Include="Services\Device.cs" />
     <Compile Include="Services\ConnectedDevices.cs" />
     <Compile Include="ViewModel\BookVM.cs" />
+    <Page Include="Styles\AllBooksStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AllBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

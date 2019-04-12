@@ -29,7 +29,7 @@ namespace KindleReader
             if (allBooks.SelectedItems.Count != 0)
             {
                 EnterCurrentPageWindow enterCurrentPageWindow = new EnterCurrentPageWindow(bookVM);
-                enterCurrentPageWindow.Show();              
+                enterCurrentPageWindow.Show();
             }
             else
             {

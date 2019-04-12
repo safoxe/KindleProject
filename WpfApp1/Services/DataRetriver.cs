@@ -26,6 +26,7 @@ namespace KindleReader.Services
         //there, I suppose, I need dependency injection. It must get IBookInfo as a parameter (?)
         private void RetriveBookData()
         {
+            
             book = BookInfoFactory.GetAdditionalBookInfoObject();
             book.Title = "Title1";
             book.Author = "Author1";

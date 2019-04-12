@@ -69,7 +69,7 @@ namespace KindleReader.ViewModel
         public BookVM()
         {
             Books = new ObservableCollection<IBookInfo>(); 
-            dataRetriver = DataRetriverFactory.GetDataRetriever();
+            dataRetriver = DataRetriverFactory.GetDataRetriever(); 
             dataRetriver.GetAllBooksFromDevice(Books);
         }
 
