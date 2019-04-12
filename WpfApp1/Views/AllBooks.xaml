@@ -37,7 +37,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Grid.Column="0" VerticalAlignment="Bottom" Command="{Binding DeleteBookCommand}" CommandParameter="{Binding ElementName=allBooks,Path=SelectedItem}" Height="40" Width="Auto" Margin="5,5,5,5" Content="Delete selected"/>
-        <Button Grid.Column="0" VerticalAlignment="Bottom" Height="40" Width="Auto" Content ="Save summary about this"/>
         <StackPanel Grid.Column="1">
             <Label  Content="Title:"/>
             <TextBlock x:Name="Title" Margin="15" Text="{Binding ElementName=allBooks, Path=SelectedItem.Title}" TextAlignment="Left"/>
