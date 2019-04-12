@@ -19,7 +19,7 @@
                 <Setter TargetName="StarButton" Property="Fill" Value="	#FFFF00"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="Cursor" Value="Hand"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

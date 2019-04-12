@@ -51,17 +51,17 @@
                           MouseDoubleClick="enterCurrentPage"
                           ToolTip="Double click on this and enter your current page"/>
 
-            <ListBox x:Name="RatePanel" HorizontalAlignment="Center" Height="Auto" Width="Auto" SelectionChanged="SelectedNewRate" Style="{StaticResource starRate}" ItemContainerStyle="{StaticResource listBoxItemView}">
+            <ListBox x:Name="RatePanel" HorizontalAlignment="Center" Height="Auto" Width="Auto"  SelectionChanged="SelectedNewRate" Style="{StaticResource starRate}" ItemContainerStyle="{StaticResource listBoxItemView}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                <ToggleButton x:Uid="1" Template="{StaticResource rateToggleButton}"/>
-                <ToggleButton x:Uid="2" Template="{StaticResource rateToggleButton}"/>
-                <ToggleButton x:Uid="3" Template="{StaticResource rateToggleButton}"/>
-                <ToggleButton x:Uid="4" Template="{StaticResource rateToggleButton}"/>
-                <ToggleButton x:Uid="5" Template="{StaticResource rateToggleButton}"/>
+                <ToggleButton x:Uid="1" Template="{StaticResource rateToggleButton}" IsEnabled="False"/>
+                <ToggleButton x:Uid="2" Template="{StaticResource rateToggleButton}" IsEnabled="False"/>
+                <ToggleButton x:Uid="3" Template="{StaticResource rateToggleButton}" IsEnabled="False"/>
+                <ToggleButton x:Uid="4" Template="{StaticResource rateToggleButton}" IsEnabled="False"/>
+                <ToggleButton x:Uid="5" Template="{StaticResource rateToggleButton}" IsEnabled="False"/>
             </ListBox>
             
             

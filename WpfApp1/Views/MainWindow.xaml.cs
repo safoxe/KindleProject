@@ -19,25 +19,15 @@ namespace KindleReader
         public MainWindow()
         {
             InitializeComponent();
-            bookVM = new BookVM();
+            bookVM = new BookVM();           
             DataContext = bookVM;
             this.Loaded += MainWindow_Loaded;
             this.Closed += MainWindow_Closed;
         }
 
         private void MainWindow_Loaded(object sender, EventArgs eventArgs)
-        {
-
+        {          
             this.NavigationService.Navigate(new AllBooks(bookVM));
-            try
-            {
-                ObservableCollection<AdditionalBookInfo> b = BookInfoDeserializer<AdditionalBookInfo>.AdditionalBookInfosDeserialize(bookVM.SelectedBook);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
         private void MainWindow_Closed(object sender, EventArgs eventArgs)
         {

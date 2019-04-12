@@ -8,6 +8,7 @@ using KindleReader.Commands;
 using KindleReader.Model;
 using System.Windows.Media;
 using System.Windows.Controls.Primitives;
+using System.Collections.Generic;
 
 namespace KindleReader
 {
@@ -36,7 +37,7 @@ namespace KindleReader
                 MessageBox.Show("Choose a book!");
             }
         }
-       
+
         private void SelectedNewRate(object sender, RoutedEventArgs e)
         {
             ListBox ratePanel = sender as ListBox;

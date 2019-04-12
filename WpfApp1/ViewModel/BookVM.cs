@@ -6,6 +6,7 @@ using KindleReader.Commands;
 using KindleReader.Factories;
 using System.Windows;
 using KindleReader.Services;
+using System.Collections.Generic;
 
 namespace KindleReader.ViewModel
 {
@@ -26,7 +27,7 @@ namespace KindleReader.ViewModel
                         string description = obj as string;
                         if (description != null)
                             SelectedBook.Description = description;
-                    }, (obj) => { return (Books.Count<0)||(SelectedBook != null); });
+                    }, (obj) => { return (Books.Count > 0) && (SelectedBook != null); });
                 }
                 return saveCommand;
             }
@@ -47,7 +48,7 @@ namespace KindleReader.ViewModel
                         {
                             Books.Remove(bookInfo);
                         }
-                    }, obj => (Books.Count < 0) || (SelectedBook != null));
+                    }, obj => (Books.Count > 0) && (SelectedBook != null));
                 }
                 return deleteBookCommand;
             }
@@ -72,7 +73,6 @@ namespace KindleReader.ViewModel
             dataRetriver = DataRetriverFactory.GetDataRetriever(); 
             dataRetriver.GetAllBooksFromDevice(Books);
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
